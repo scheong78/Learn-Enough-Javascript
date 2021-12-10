@@ -22,10 +22,8 @@ let words = sonnet.match(/[\w']+/g);
 // Iterate through `words` and build up an associative array of unique words.
 for (let i=0; i < words.length; i++) {
   let word = words[i];
-  uniques.set(word, 0);
-  let currentValue = uniques.get(word)
-  if (!uniques.get(word)) {
-    uniques.set(word, currentValue + 1);
+  if (uniques.get(word)) {
+    uniques.set(word, uniques.get(word) + 1);
   } else {
     uniques.set(word, 1);
   }
