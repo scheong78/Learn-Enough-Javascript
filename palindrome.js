@@ -1,10 +1,32 @@
-// Reverses string
-function reverseString(string) {
-  return Array.from(string).reverse().join("");
+// Adds `reverse` to all strings.
+String.prototype.reverse = function() {
+  return Array.from(this).reverse().join("");
 }
 
-// Return true if it is a palindrome. Return false otherwise
-function palindrome(string) {
-  let processedContent = string.toLowerCase();
-  return processedContent === reverseString(processedContent);
+// Defines a Phrase object.
+function Phrase(content) {
+  this.content = content;
+
+  // Returns lowercased content
+  this.processedContent = function() {
+    return this.content.toLowerCase();
+  }
+
+  // Return true if it is a palindrome. Return false otherwise
+  this.palindrome = function() {
+    return this.processedContent() === this.processedContent().reverse();
+  }
 }
+
+// // Defines a TranslatedPhrase object.
+// function TranslatedPhrase(content, translation) {
+//   this.content = content;
+//   this.translation = translation;
+//
+//   // Returns translation processed for palindrome testing.
+//   this.processedContent = function() {
+//     return this.translation.toLowerCase();
+//   }
+// }
+//
+// TranslatedPhrase.prototype = new Phrase();
