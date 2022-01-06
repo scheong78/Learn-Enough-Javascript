@@ -35,7 +35,7 @@ let functionalStateLength = (array) => {
   return array.reduce((lengths, element) => {
       lengths[element] = element.length;
       return lengths;
-    }, {});
+    }, {})
 }
 
 console.log(functionalStateLength(states));
